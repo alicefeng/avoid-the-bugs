@@ -35,8 +35,10 @@ Enemy.prototype.render = function() {
 
 // Detect collision with player
 Enemy.prototype.checkCollisions = function() {
-   if((Math.abs(this.x - player.x) < 50) && (Math.abs(this.y - player.y) < 85)) {
-        console.log("collision!");
+   if((Math.abs(this.x - player.x) < 50) && (Math.abs(this.y - player.y) < 65)) {
+        // reset player to start square upon collision
+        player.x = 200;
+        player.y = 404;
     }
 }
 
@@ -88,7 +90,7 @@ Player.prototype.handleInput = function(key_pressed) {
             }
             break;
     }
-    console.log(this.x, this.y);
+    // console.log(this.x, this.y);
 }
 
 // Draw player on the screen
@@ -99,7 +101,7 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy(60, 60, 40), new Enemy(0, 140, 100), new Enemy(-60, 220, 80)];
+var allEnemies = [new Enemy(60, 60, 140), new Enemy(0, 140, 200), new Enemy(-60, 220, 180)];
 var player = new Player(200, 404);
 
 
