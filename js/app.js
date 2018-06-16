@@ -1,3 +1,6 @@
+var gameOverModal = document.querySelector('.congrats_popup');
+var playAgainButton = document.querySelector('.play_again');
+
 // Enemies our player must avoid
 var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
@@ -58,13 +61,9 @@ Player.prototype.handleInput = function(key_pressed) {
     // they can't run off the screen
     switch(key_pressed) {
         case 'up':
-            if(this.y <= -11) {
-                this.y;
-                // end game
+            this.y -= 83;
+            if(this.y <= -10) {
                 endGame();
-            }
-            else {
-                this.y -= 83;
             }
             break;
         case 'down':
@@ -120,12 +119,25 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-// function to end game when player reaches water
+// display end game modal when player reaches water
 function endGame() {
-    player.x = 200;
-    player.y = 404;
+    gameOverModal.classList.add('won');
 }
 
+// remove modal and move player back to starting square
+// also create new enemies
+function reset() {
+    gameOverModal.classList.remove('won');
+    player.x = 200;
+    player.y = 404;
+    allEnemies = [new Enemy(60, 60), new Enemy(0, 140), new Enemy(-60, 220)];
+}
+
+// reset game if player clicks 'Play Again!'
+
+playAgainButton.addEventListener('click', function(e) {
+    reset();
+})
 
 // random number generator for enemy instance speed
 // code from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
