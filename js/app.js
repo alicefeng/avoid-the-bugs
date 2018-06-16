@@ -42,6 +42,23 @@ var Player = function(x, y) {
     this.y = y;
 }
 
+Player.prototype.handleInput = function(key_pressed) {
+    switch(key_pressed) {
+        case 'up':
+            this.y -= 83;
+            break;
+        case 'down':
+            this.y += 83;
+            break;
+        case 'left':
+            this.x -= 101;
+            break;
+        case 'right':
+            this.x += 101;
+            break;
+    }
+}
+
 // Draw player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
