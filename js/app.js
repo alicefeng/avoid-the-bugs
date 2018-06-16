@@ -25,6 +25,7 @@ Enemy.prototype.update = function(dt) {
     }
     else {
         this.x = this.x + (this.speed * dt);
+        this.checkCollisions();
     }
 };
 
@@ -51,6 +52,10 @@ var Player = function(x, y) {
     this.y = y;
 }
 
+Player.prototype.update = function(step) {
+
+}
+
 Player.prototype.handleInput = function(key_pressed) {
     // move player in correct direction based on key press
     // but also check that the player isn't at the edge so
@@ -60,6 +65,7 @@ Player.prototype.handleInput = function(key_pressed) {
             if(this.y <= -11) {
                 this.y;
                 // end game
+                endGame();
             }
             else {
                 this.y -= 83;
@@ -117,3 +123,9 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+// function to end game when player reaches water
+function endGame() {
+    player.x = 200;
+    player.y = 404;
+}
