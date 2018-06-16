@@ -43,20 +43,45 @@ var Player = function(x, y) {
 }
 
 Player.prototype.handleInput = function(key_pressed) {
+    // move player in correct direction based on key press
+    // but also check that the player isn't at the edge so
+    // they can't run off the screen
     switch(key_pressed) {
         case 'up':
-            this.y -= 83;
+            if(this.y <= -11) {
+                this.y;
+                // end game
+            }
+            else {
+                this.y -= 83;
+            }
             break;
         case 'down':
-            this.y += 83;
+            if(this.y >= 404) {
+                this.y;
+            }
+            else {
+                this.y += 83;
+            }
             break;
         case 'left':
-            this.x -= 101;
+            if(this.x <= -2) {
+                this.x;
+            }
+            else {
+                this.x -= 101;
+            }
             break;
         case 'right':
-            this.x += 101;
+            if(this.x >= 402) {
+                this.x;
+            }
+            else {
+                this.x += 101;
+            }
             break;
     }
+    console.log(this.x, this.y);
 }
 
 // Draw player on the screen
