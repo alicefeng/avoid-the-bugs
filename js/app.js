@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, speed) {
+var Enemy = function(x, y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -10,7 +10,7 @@ var Enemy = function(x, y, speed) {
     // set initial location and speed of the enemy
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = getRandomIntInclusive(100, 300);
 };
 
 // Update the enemy's position, required method for game
@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     if(this.x > 505) {
         // if enemy has reached the end of the board, it should loop back around
-        this.x = -101;  // set x to -101 so bug is off-screen
+        this.x = -101;
     }
     else {
         this.x = this.x + (this.speed * dt);
@@ -50,10 +50,6 @@ var Player = function(x, y) {
     this.sprite = 'images/char-princess-girl.png';
     this.x = x;
     this.y = y;
-}
-
-Player.prototype.update = function(step) {
-
 }
 
 Player.prototype.handleInput = function(key_pressed) {
@@ -107,7 +103,7 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [new Enemy(60, 60, 140), new Enemy(0, 140, 200), new Enemy(-60, 220, 180)];
+var allEnemies = [new Enemy(60, 60), new Enemy(0, 140), new Enemy(-60, 220)];
 var player = new Player(200, 404);
 
 
@@ -128,4 +124,13 @@ document.addEventListener('keyup', function(e) {
 function endGame() {
     player.x = 200;
     player.y = 404;
+}
+
+
+// random number generator for enemy instance speed
+// code from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
