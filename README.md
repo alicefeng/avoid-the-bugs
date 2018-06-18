@@ -1,6 +1,16 @@
-frontend-nanodegree-arcade-game
+Avoid the Bugs!
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+A remix of the classic arcade game Frogger.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How Do I Play?
+
+The objective of this game is simple: you need to cross the road and make it safely to the water without running into any of the bugs.
+
+You can move the player up, down, left or right by using the arrow keys.
+
+Try to avoid the bugs!  If you run into any of them, you will lose and the game will reset.  You win the game by making it safely to the water.
+
+## How Do I Load the Game?
+
+You can run the game by cloning this repository and then opening up `index.html` in a browser.
