@@ -63,6 +63,7 @@ Player.prototype.handleInput = function(key_pressed) {
         case 'up':
             this.y -= 83;
             if(this.y <= -10) {
+                this.y = -10;
                 endGame();
             }
             break;
