@@ -92,7 +92,6 @@ Player.prototype.handleInput = function(key_pressed) {
             }
             break;
     }
-    // console.log(this.x, this.y);
 }
 
 // Draw player on the screen
@@ -131,11 +130,10 @@ function reset() {
     gameOverModal.classList.remove('won');
     player.x = 200;
     player.y = 404;
-    allEnemies = [new Enemy(60, 60), new Enemy(0, 140), new Enemy(-60, 220)];
+    allEnemies = [new Enemy(60, 60), new Enemy(60, 60), new Enemy(0, 140), new Enemy(0, 140), new Enemy(0, 140), new Enemy(-60, 220)];
 }
 
 // reset game if player clicks 'Play Again!'
-
 playAgainButton.addEventListener('click', function(e) {
     reset();
 })
