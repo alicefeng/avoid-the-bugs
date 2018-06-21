@@ -13,4 +13,4 @@ Try to avoid the bugs!  If you run into any of them, you will lose and the game 
 
 ## How Do I Load the Game?
 
-You can run the game by cloning this repository and then opening up `index.html` in a browser.
+You can run the game by cloning this repository, navigating to the root of the folder and then opening up `index.html` in a browser.  All assets and dependencies will be loaded by `index.html`.  (The only dependencies this game has are Google Fonts.)
