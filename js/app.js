@@ -22,14 +22,11 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    if(this.x > 505) {
-        // if enemy has reached the end of the board, it should loop back around
-        this.x = -101;
-    }
-    else {
-        this.x = this.x + (this.speed * dt);
-        this.checkCollisions();
-    }
+
+    // if enemy has reached the end of the board, it should loop back around s
+    this.x > 505 && (this.x = -101);
+    this.x = this.x + (this.speed * dt);
+    this.checkCollisions();
 };
 
 // Draw the enemy on the screen, required method for game
